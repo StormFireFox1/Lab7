@@ -5,28 +5,19 @@
 //   - One for activation ( check out MDN's clients.claim() for this step )
 //   - One for fetch requests
 
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/sw.js').then(function(registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      });
-    });
-}
-
 // installation
 var CACHE_NAME = 'journal-cache';
-var urlsToCache = [
-    '/'
+var URLS_TO_CACHE = [
+    '/',
+    'https://cse110lab6.herokuapp.com/',
+    'https://drive.google.com',
 ];
+
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('Opened cache');
-            return cache.addAll(urlsToCache);
+            return cache.addAll(URLS_TO_CACHE);
         })
     );
 });
