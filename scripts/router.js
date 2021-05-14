@@ -33,7 +33,7 @@ router.setState = function(state, entry) {
 
   switch (state) {
     case 'home':
-      history.pushState({pageType: 'home'}, 'Lab 6 - Web Components', window.location.origin);
+      history.pushState({pageType: 'home'}, 'Lab 7 - Web Components', window.location.origin);
       break;
     case 'entry':
       const path = '#entry' + encodeURIComponent(entry.order);
