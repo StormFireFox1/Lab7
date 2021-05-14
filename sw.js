@@ -11,6 +11,7 @@ var URLS_TO_CACHE = [
     '/',
     'https://cse110lab6.herokuapp.com/entries',
     // 'https://drive.google.com',
+    // images    
 ];
 
 self.addEventListener('install', (event) => {
