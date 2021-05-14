@@ -4,10 +4,12 @@ export const router = {};
 export const setContent = (state, entry) => {
   const body = document.getElementsByTagName('body')[0];
   const entryPage = document.getElementsByTagName('entry-page')[0];
+  const header = document.querySelector('header > h1');
 
   switch (state) {
     case 'home':
       body.className = '';
+      header.innerHTML = 'Journal Entries';
       break;
     case 'entry':
       entryPage.remove();
@@ -16,9 +18,11 @@ export const setContent = (state, entry) => {
       // insert entry page after main
       const mainContent = document.getElementsByTagName('main')[0];
       body.insertBefore(newEntryPage, mainContent.nextSibling);
+      header.innerHTML = 'Entry #' + entry.order;
       body.className = 'single-entry';
       break;
     case 'settings':
+      header.innerHTML = 'Settings';
       body.className = 'settings';
       break;
     default:
