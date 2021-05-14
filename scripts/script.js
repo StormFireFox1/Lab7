@@ -22,6 +22,9 @@ window.onpopstate = (event) => {
 const settingsIcon = document.querySelector('img[alt="settings"]');
 settingsIcon.onclick = () => {router.setState('settings');};
 
+const header = document.querySelector('header > h1');
+header.onclick = () => {router.setState('home'); };
+
 document.addEventListener('DOMContentLoaded', () => {
   router.setState('home');
   fetch('https://cse110lab6.herokuapp.com/entries')
